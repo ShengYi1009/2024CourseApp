@@ -7,6 +7,7 @@ enum class Department {
 	CompeterSciece,
 	ElectricalEngineering,
 	ElectronicEngineering,
+	InfromatintManagement,
 };
 
 enum class ClassName {

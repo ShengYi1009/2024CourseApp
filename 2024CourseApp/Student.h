@@ -22,7 +22,9 @@ public:
 
     //Setter ³]­È¨ç¼Æ
     void setStudentId(const string& studentId);
-    void setdepartment(const string& departmant);
-    void setClassName(const string& ClassName);
+    void setdepartment(Department departmant);
+    void setClassName(ClassName ClassName);
+
+    void display() const;
 };
 

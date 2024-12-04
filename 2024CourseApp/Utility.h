@@ -3,7 +3,7 @@ using namespace std;
 
 #include<iostream>
 
-enum class Department {
+enum class Department { //¦Cªí
 	CompeterSciece,
 	ElectricalEngineering,
 	ElectronicEngineering,

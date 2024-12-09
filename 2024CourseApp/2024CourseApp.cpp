@@ -1,5 +1,5 @@
 ﻿// 南台 4B3G0132 徐勝益 程式設計作業5。
-// 學生選課系統(Part2: Student類別)
+// 學生選課系統(Part3: Teacher類別)
 
 #include <iostream>
 #include<string>
@@ -35,7 +35,7 @@ int main()
 
     cout << "-----------------------------------" << endl;
     cout << "南台科大 4B3G0132 徐勝益 程式作業" << endl;
-    cout << "學生選課系統(Part2: Student類別)" << endl;
+    cout << "學生選課系統(Part3: Teacher類別)" << endl;
     cout << "-----------------------------------" << endl;
     cout << endl;
     person1.display();

@@ -25,13 +25,13 @@ int main()
     Course course1("C001", "C++ Programming", "這門課程教授C++程式語言");
     Course course2("C002", "Java Programming", "這門課程教授Java程式語言");
     Course course3("C003", "Python Programming", "這門課程教授Python程式語言");
-    //course1.display();
-    //course2.display();
-    //course3.display();
+    /*course1.display();
+    course2.display();
+    course3.display();*/
 
     vector<Course> teacher1_courses = { course1, course2, course3 };
     //--------------(我是分隔島)---------------
-    Teacher teacher1("032", "阿益", "張", "男", "1949-02-28", "A301", Department::CompeterSciece, ClassName::_4A, { course1 });
+    Teacher teacher1("032", "阿益", "張", "男", "1949-02-28", "A301", Department::CompeterSciece, ClassName::_4A, { teacher1_courses });
 
     cout << "-----------------------------------" << endl;
     cout << "南台科大 4B3G0132 徐勝益 程式作業" << endl;

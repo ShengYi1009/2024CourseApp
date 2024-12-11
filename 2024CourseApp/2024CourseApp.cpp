@@ -7,9 +7,15 @@
 #include"Student.h"
 #include"Course.h"
 #include"Teacher.h"
+#include "2024CourseApp.h"
 using namespace std;
 
 int main()
+{
+    InitializeData();
+}
+
+void InitializeData()
 {
     Person person1("A123321", "汪", "小季", "男", "1999-10-10");
     //--------------(我是分隔島)---------------
@@ -38,12 +44,12 @@ int main()
     cout << "學生選課系統(Part3: Teacher類別)" << endl;
     cout << "-----------------------------------" << endl;
     cout << endl;
-    person1.display();
+    /*person1.display();
     cout << endl;
     person2->display();
     cout << endl;
     student1.display();
-    cout << endl;
+    cout << endl;*/
     course1.display();
     cout << endl;
     teacher1.display();

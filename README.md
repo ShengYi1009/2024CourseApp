@@ -24,3 +24,8 @@
 - 新增繼承自Person的Teacher類別
 - 使用vector容器儲存物件來記錄教師所授課的課程
 - 變數重新命名(rename)，程式碼重構(refactoring)
+
+## ver4
+- 使用例外處理(exception handling)來處理錯誤
+- 使用檔案來儲存課程資料
+- 使用了畫面清空功能(system("cls"))，但不建議使用

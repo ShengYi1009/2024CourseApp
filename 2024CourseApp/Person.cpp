@@ -78,7 +78,7 @@ void Person::setBirthDate(const string& birthDate)
 
 void Person::display() const //把資料印出來
 {
-    cout << "ID: " << id << endl;
+    cout << "身分證字號: " << id << endl;
     cout << "姓: " << lastName << endl;
     cout << "名: " << firstName << endl;
     cout << "性別: " << gender << endl;

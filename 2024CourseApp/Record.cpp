@@ -1,9 +1,6 @@
 #include "Record.h"
 #include <iostream>
 using namespace std;
-Record::Record()
-{
-}
 int Record::nextId = 1;
 Record::Record(const string& studentId, const string& courseId) : recordId(nextId++), studentId(studentId), courseId(courseId), recordDate(time(0))
 {

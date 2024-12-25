@@ -27,13 +27,11 @@ void Student::setStudentId(const string& studentId)
 	this->studentId = studentId;
 }
 
-void Student::setdepartment(Department departmant)
-{
+void Student::setdepartment(Department department) {
 	this->department = department;
 }
 
-void Student::setClassName(ClassName ClassName)
-{
+void Student::setClassName(ClassName className) {
 	this->className = className;
 }
 

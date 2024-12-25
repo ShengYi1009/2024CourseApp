@@ -131,60 +131,117 @@ void DisplayMenu()
 		switch (choice)
 		{
 		case 1:
+			cout << "----------------" << endl;
+			cout << "顯示所有學生資料" << endl;
+			cout << "----------------" << endl;
 			listStudents();
 			break;
 		case 2:
+			cout << "----------------" << endl;
+			cout << "顯示所有課程資料" << endl;
+			cout << "----------------" << endl;
 			listCourses();
 			break;
 		case 3:
+			cout << "----------------" << endl;
+			cout << "顯示所有教師資料" << endl;
+			cout << "----------------" << endl;
 			listTeachers();
 			break;
 		case 4:
+			cout << "----------------" << endl;
+			cout << "顯示所有選課紀錄" << endl;
+			cout << "----------------" << endl;
 			listRecords();
 			break;
 		case 5:
+			cout << "----------------" << endl;
+			cout << "查詢學生資料" << endl;
+			cout << "----------------" << endl;
 			queryStudent();
 			break;
 		case 6:
+			cout << "----------------" << endl;
+			cout << "查詢課程資料" << endl;
+			cout << "----------------" << endl;
 			queryCourse();
 			break;
 		case 7:
+			cout << "----------------" << endl;
+			cout << "查詢教師資料" << endl;
+			cout << "----------------" << endl;
 			queryTeacher();
 			break;
 		case 8:
+			cout << "----------------" << endl;
+			cout << "查詢選課紀錄" << endl;
+			cout << "----------------" << endl;
 			queryRecord();
 			break;
 		case 9:
+			cout << "----------------" << endl;
+			cout << "新增學生資料" << endl;
+			cout << "----------------" << endl;
 			addStudent();
 			break;
 		case 10:
+			cout << "----------------" << endl;
+			cout << "新增課程資料" << endl;
+			cout << "----------------" << endl;
 			addCourse();
 			break;
 		case 11:
+			cout << "----------------" << endl;
+			cout << "新增教師資料" << endl;
+			cout << "----------------" << endl;
 			addTeacher();
 			break;
 		case 12:
+			cout << "----------------" << endl;
+			cout << "新增選課紀錄" << endl;
+			cout << "----------------" << endl;
 			addRecord();
 			break;
 		case 13:
+			cout << "----------------" << endl;
+			cout << "刪除學生資料" << endl;
+			cout << "----------------" << endl;
 			deleteStudent();
 			break;
 		case 14:
+			cout << "----------------" << endl;
+			cout << "刪除課程資料" << endl;
+			cout << "----------------" << endl;
 			deleteCourse();
 			break;
 		case 15:
+			cout << "----------------" << endl;
+			cout << "刪除教師資料" << endl;
+			cout << "----------------" << endl;
 			deleteTeacher();
 			break;
 		case 16:
+			cout << "----------------" << endl;
+			cout << "刪除選課紀錄" << endl;
+			cout << "----------------" << endl;
 			deleteRecord();
 			break;
 		case 17:
+			cout << "----------------" << endl;
+			cout << "修改學生資料" << endl;
+			cout << "----------------" << endl;
 			modifyStudent();
 			break;
 		case 18:
+			cout << "----------------" << endl;
+			cout << "修改課程資料" << endl;
+			cout << "----------------" << endl;
 			modifyCourse();
 			break;
 		case 19:
+			cout << "----------------" << endl;
+			cout << "修改教師資料" << endl;
+			cout << "----------------" << endl;
 			modifyTeacher();
 			break;
 		case 0:

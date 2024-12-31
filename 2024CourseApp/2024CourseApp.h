@@ -24,3 +24,4 @@ void deleteRecord();
 void modifyStudent();
 void modifyCourse();
 void modifyTeacher();
+void DeleteRecordsData();

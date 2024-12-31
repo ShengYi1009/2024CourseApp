@@ -5,6 +5,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <fstream>
 #include "Record.h"
 #include "Person.h"
 #include "Student.h"
@@ -18,7 +19,82 @@ vector<Student> students;
 vector<Course> courses;
 vector<Teacher> teachers;
 
+void SaveRecordsData()
+{
+	ifstream inFile("records.txt");
+	if (inFile)
+	{
+		inFile.close();
+		char choice;
+		cout << "檔案已存在，是否覆蓋？(y/n): ";
+		cin >> choice;
+		if (choice != 'y' && choice != 'Y')
+		{
+			cout << "取消儲存選課紀錄。" << endl;
+			return;
+		}
+	}
 
+	ofstream outFile("records.txt");
+	if (!outFile)
+	{
+		cerr << "無法開啟檔案進行寫入！" << endl;
+		return;
+	}
+
+	outFile << "選課紀錄總共有 " << records.size() << " 筆" << endl;
+	outFile << "-----------------------------------" << endl;
+
+	for (const auto& record : records)
+	{
+		string studentName, studentGender, studentBirthDate, studentDepartment, studentClassName;
+		string courseName, courseDescription;
+
+		// 找到學生詳細資訊
+		for (const auto& student : students)
+		{
+			if (student.getStudentId() == record.getStudentId())
+			{
+				studentName = student.getLastName() + student.getFirstName();
+				studentGender = student.getGender();
+				studentBirthDate = student.getBirthDate();
+				studentDepartment = Utility::toString(student.getdepartment());
+				studentClassName = Utility::toString(student.getclassName());
+				break;
+			}
+		}
+
+		// 找到課程詳細資訊
+		for (const auto& course : courses)
+		{
+			if (course.getcourseId() == record.getCourseId())
+			{
+				courseName = course.getcourseName();
+				courseDescription = course.getcourseDescription();
+				break;
+			}
+		}
+
+		outFile << "紀錄ID: " << record.getRecordId() << endl;
+		outFile << "學生ID: " << record.getStudentId() << endl;
+		outFile << "姓名: " << studentName << endl;
+		outFile << "性別: " << studentGender << endl;
+		outFile << "生日: " << studentBirthDate << endl;
+		outFile << "系所: " << studentDepartment << endl;
+		outFile << "班級: " << studentClassName << endl;
+		outFile << "-----------------------------------" << endl;
+		outFile << "課程ID: " << record.getCourseId() << endl;
+		outFile << "課程名稱: " << courseName << endl;
+		outFile << "課程描述: " << courseDescription << endl;
+		outFile << "-----------------------------------" << endl;
+		outFile << "選課日期: " << record.getRecordDate() << endl;
+		outFile << "-----------------------------------" << endl;
+		outFile << "-----------------------------------" << endl;
+	}
+
+	outFile.close();
+	cout << "選課紀錄已成功儲存至 records.txt 檔案中！" << endl;
+}
 
 int main()
 {
@@ -28,41 +104,6 @@ int main()
 
 void InitializeData()
 {
-    //Person person1("A123321", "汪", "小季", "男", "1999-10-10");
-    ////--------------(我是分隔島)---------------
-    //Person* person2 = new Person(); //指標
-    //person2->setId("B7654321");
-    //person2->setLastName("張");
-    //person2->setFirstName("凱七");
-    //person2->setGender("女");
-    //person2->setBirthDate("2024-01-05");
-    ////--------------(我是分隔島)---------------
-    //Student student1("A123321", "chen", "Jeo", "M", "1999-05-05", "S001", Department::CompeterSciece, ClassName::_1A);
-    ////--------------(我是分隔島)---------------
-    //Course course1("C001", "C++ Programming", "這門課程教授C++程式語言");
-    //Course course2("C002", "Java Programming", "這門課程教授Java程式語言");
-    //Course course3("C003", "Python Programming", "這門課程教授Python程式語言");
-    ///*course1.display();
-    //course2.display();
-    //course3.display();*/
-
-    //vector<Course> teacher1_courses = { course1, course2, course3 };
-    ////--------------(我是分隔島)---------------
-    //Teacher teacher1("032", "阿益", "張", "男", "1949-02-28", "A301", Department::CompeterSciece, ClassName::_4A, { teacher1_courses });
-
-    //Signature();
-    //cout << endl;
-    ///*person1.display();
-    //cout << endl;
-    //person2->display();
-    //cout << endl;
-    //student1.display();
-    //cout << endl;*/
-    //course1.display();
-    //cout << endl;
-    //teacher1.display();
-    //cout << endl;
-
 	courses.push_back(Course("C001", "C++ Programming", "這門課程教授C++程式語言"));
 	courses.push_back(Course("C002", "Java Programming", "這門課程教授Java程式語言"));
 	courses.push_back(Course("C003", "Python Programming", "這門課程教授Python程式語言"));
@@ -93,10 +134,6 @@ void InitializeData()
 	records.push_back(Record("S003", "C002"));
 	records.push_back(Record("S003", "C003"));
 	records.push_back(Record("S004", "C001"));
-
-
-
-
 }
 
 void DisplayMenu()
@@ -124,6 +161,8 @@ void DisplayMenu()
 		cout << "17. 修改學生資料" << endl;
 		cout << "18. 修改課程資料" << endl;
 		cout << "19. 修改教師資料" << endl;
+		cout << "20. 儲存選課紀錄資料" << endl;
+		cout << "21. 刪除選課紀錄資料" << endl;
 		cout << "0. 結束" << endl;
 		cout << "請輸入選項：";
 		cin >> choice;
@@ -244,6 +283,18 @@ void DisplayMenu()
 			cout << "----------------" << endl;
 			modifyTeacher();
 			break;
+		case 20:
+			cout << "----------------" << endl;
+			cout << "儲存選課紀錄資料" << endl;
+			cout << "----------------" << endl;
+			SaveRecordsData();
+			break;
+		case 21:
+			cout << "----------------" << endl;
+			cout << "刪除選課紀錄資料" << endl;
+			cout << "----------------" << endl;
+			DeleteRecordsData();
+			break;
 		case 0:
 			cout << "程式結束！" << endl;
 			break;
@@ -258,7 +309,7 @@ void Signature()
 {
 	cout << "-----------------------------------" << endl;
 	cout << "南台科大 4B3G0132 徐勝益 程式作業" << endl;
-	cout << "學生選課系統(Part 5: 刪除與修改功能)" << endl;
+	cout << "學生選課系統(Part 6：儲存選課紀錄)" << endl;
 	cout << "-----------------------------------" << endl;
 }
 
@@ -757,4 +808,16 @@ void addRecord()
 	cin >> courseId;
 	cout << "新增選課紀錄成功!!" << endl;
 	records.push_back(Record(studentId, courseId));
+}
+
+void DeleteRecordsData()
+{
+	if (remove("records.txt") == 0)
+	{
+		cout << "已成功刪除 records.txt 檔案。" << endl;
+	}
+	else
+	{
+		cerr << "無法刪除 records.txt 檔案。" << endl;
+	}
 }
